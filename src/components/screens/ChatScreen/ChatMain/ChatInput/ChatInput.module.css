@@ -1,0 +1,71 @@
+.container {
+  position: absolute;
+  bottom: 50px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #bcbcbc38;
+  border-radius: 0.75rem;
+  padding: 15px;
+}
+.form {
+  position: relative;
+}
+.label {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.textarea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  resize: none;
+  padding: 0;
+}
+.textareaName {
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  transition: 0.1s ease-in, opacity 0s;
+  transform-origin: left top;
+}
+.textareaNameRelative {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0.8);
+  opacity: 0.7;
+}
+.textareaNameAbsolute {
+  position: absolute;
+  top: -35px;
+  transform: scale(0.6);
+  left: 0;
+  opacity: 0.4;
+}
+textarea::placeholder {
+  color: yellow;
+}
+
+.textarea::-webkit-scrollbar {
+  width: 3px; /* Ширина области скролла */
+  border-radius: 50%;
+}
+
+/* Стилизация ползунка скролла */
+.textarea::-webkit-scrollbar-thumb {
+  background-color: #150b1c; /* Цвет ползунка скролла */
+  border-radius: 5px; /* Закругление углов ползунка */
+}
+
+/* Стилизация трека скролла (фоновая область) */
+.textarea::-webkit-scrollbar-track {
+  background-color: transparent; /* Цвет фоновой области скролла */
+}
