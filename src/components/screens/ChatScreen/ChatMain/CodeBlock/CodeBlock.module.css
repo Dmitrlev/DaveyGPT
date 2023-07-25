@@ -1,0 +1,45 @@
+.container {
+  margin: 100px;
+  height: max-content;
+  width: max-content;
+  max-width: 70%;
+}
+.wrapper {
+  background: #282b2e;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.codeBlock {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.headerBlock {
+  font-size: 80%;
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  background: #444547;
+  color: white;
+}
+.language {}
+.copyBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 5px;
+  margin-right: 0;
+  margin-left: auto;
+}
+.copyBlock p {
+  color: white;
+}
+
+/* Переопределите стили SyntaxHighlighter для изменения заднего фона */
+/* CodeBlock.module.css */
+.syntax-highlighter {
+  background-color: black; /* Измените фон блока кода */
+}
+
+.syntax-highlighter code {
+  font-size: 14px;
+  color: red; /* Измените цвет текста */
+}

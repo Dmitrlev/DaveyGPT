@@ -15,6 +15,7 @@ body {
 }
 *{
   box-sizing: border-box;
+  font-size: 100%;
 }
 
 p {
@@ -22,6 +23,7 @@ p {
   font-family: Open Sans, sans-serif;
   font-weight: 400;
   line-height: 1.5;
+  font-size: 100%;
 }
 
 textarea {
@@ -30,7 +32,28 @@ textarea {
   line-height: 1.5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::selection {
+  background-color: #444547;
 }
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*.language-javascript::-webkit-scrollbar {*/
+/*  width: 3px; !* Ширина области скролла *!*/
+/*  border-radius: 50%;*/
+/*}*/
+
+/*!* Стилизация ползунка скролла *!*/
+/*.language-javascript::-webkit-scrollbar-thumb {*/
+/*  background-color: #150b1c; !* Цвет ползунка скролла *!*/
+/*  border-radius: 5px; !* Закругление углов ползунка *!*/
+/*}*/
+
+/*!* Стилизация трека скролла (фоновая область) *!*/
+/*.language-javascript::-webkit-scrollbar-track {*/
+/*  background-color: transparent; !* Цвет фоновой области скролла *!*/
+/*}*/

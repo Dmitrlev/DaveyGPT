@@ -1,0 +1,8 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 500px;
+  padding-bottom: 500px;
+  overflow-y: scroll;
+}

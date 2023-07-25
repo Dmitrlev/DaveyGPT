@@ -7,6 +7,7 @@
   background: linear-gradient(149deg,#010409 0,#150b1c 42%,#1a0414 72%,#0c0c34 100%);
   background-size: 400%;
   display: flex;
+  overflow: hidden;
 }
 .errorContainer {
   position: fixed;
@@ -26,7 +27,7 @@
     background-position: 80% 0;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 100px) {
   .container {
     display: none;
   }

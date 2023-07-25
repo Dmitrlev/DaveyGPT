@@ -1,24 +1,24 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {textareaResize} from "../../../../../parsing/textareaResize";
 import styles from './ChatInput.module.css';
+import {IoSend} from "react-icons/io5";
 
 export const ChatInput = () => {
 
   const [cache, setCache] = useState(null);
   const [value, setValue] = useState('');
-
-  useEffect(() => {
-    console.log(cache)
-  }, [cache])
+  const [isFocused, setIsFocused] = useState(false);
 
   const onCountPlaceholderPosition = () => {
     return value === ''
-  }
+  };
+
+  const handleFocus = () => setIsFocused(true)
+  const handleBlur = () => setIsFocused(false)
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isFocused ? styles['container-focus'] : ''}`}>
       <form
-        onSubmit={(e) => alert('go')}
         className={styles.form}
       >
         <div className={styles.label}>
@@ -30,14 +30,21 @@ export const ChatInput = () => {
           }
           >Send a messages</p>
           <textarea
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             readOnly={false}
-            autoFocus={true}
             rows={1}
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => {
+              setValue(e.target.value)
+              textareaResize(e, cache, setCache, 150)
+            }}
             onKeyDown={(e) => textareaResize(e, cache, setCache, 150)}
             className={styles.textarea}
           />
+          <button className={styles['button-submit-form']}>
+            <IoSend color={'#79c0ff'}/>
+          </button>
         </div>
       </form>
     </div>
