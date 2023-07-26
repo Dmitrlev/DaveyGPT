@@ -1,13 +1,19 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {textareaResize} from "../../../../../parsing/textareaResize";
 import styles from './ChatInput.module.css';
-import {IoSend} from "react-icons/io5";
+import {ButtonSubmitForm} from "./ButtonSubmitForm/ButtonSubmitForm";
 
 export const ChatInput = () => {
 
   const [cache, setCache] = useState(null);
   const [value, setValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+
+  const [isBlock, setIsBlock] = useState(false);
+
+  useEffect(() => {
+    setIsBlock(value !== '')
+  }, [value])
 
   const onCountPlaceholderPosition = () => {
     return value === ''
@@ -42,9 +48,7 @@ export const ChatInput = () => {
             onKeyDown={(e) => textareaResize(e, cache, setCache, 150)}
             className={styles.textarea}
           />
-          <button className={styles['button-submit-form']}>
-            <IoSend color={'#00bda6'}/>
-          </button>
+          <ButtonSubmitForm show={isBlock}/>
         </div>
       </form>
     </div>
