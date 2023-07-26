@@ -34,7 +34,7 @@
 }
 
 /* Переопределите стили SyntaxHighlighter для изменения заднего фона */
-/* CodeBlock.module.css */
+/* CodeBlock.ResizingLine.module.css */
 .syntax-highlighter {
   background-color: black; /* Измените фон блока кода */
 }

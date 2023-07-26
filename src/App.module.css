@@ -9,6 +9,8 @@
   display: flex;
   overflow: hidden;
 }
+body {
+}
 .errorContainer {
   position: fixed;
   top: 50%;

@@ -43,7 +43,7 @@ export const ChatInput = () => {
             className={styles.textarea}
           />
           <button className={styles['button-submit-form']}>
-            <IoSend color={'#79c0ff'}/>
+            <IoSend color={'#00bda6'}/>
           </button>
         </div>
       </form>

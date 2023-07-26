@@ -6,3 +6,18 @@
   padding-bottom: 500px;
   overflow-y: scroll;
 }
+.container::-webkit-scrollbar {
+  width: 5px; /* Ширина области скролла */
+  border-radius: 50%;
+}
+
+/* Стилизация ползунка скролла */
+.container::-webkit-scrollbar-thumb {
+  background-color: #150b1c; /* Цвет ползунка скролла */
+  border-radius: 5px; /* Закругление углов ползунка */
+}
+
+/* Стилизация трека скролла (фоновая область) */
+.container::-webkit-scrollbar-track {
+  background-color: transparent; /* Цвет фоновой области скролла */
+}

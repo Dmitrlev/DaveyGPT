@@ -1,9 +1,10 @@
 .container {
   position: relative;
-  min-width: 250px;
+  display: block;
   height: 100%;
   background: #6c37612b;
-  padding: 10px;
+  overflow-y: scroll;
+  transition: 0.3s;
 }
 .wrapper {
   position: relative;
@@ -17,4 +18,20 @@
   height: 50px;
   background: #8d8d8d21;
   border-radius: 0.75rem;
+}
+
+.container::-webkit-scrollbar {
+  width: 5px; /* Ширина области скролла */
+  border-radius: 50%;
+}
+
+/* Стилизация ползунка скролла */
+.container::-webkit-scrollbar-thumb {
+  background-color: #150b1c; /* Цвет ползунка скролла */
+  border-radius: 5px; /* Закругление углов ползунка */
+}
+
+/* Стилизация трека скролла (фоновая область) */
+.container::-webkit-scrollbar-track {
+  background-color: transparent; /* Цвет фоновой области скролла */
 }
