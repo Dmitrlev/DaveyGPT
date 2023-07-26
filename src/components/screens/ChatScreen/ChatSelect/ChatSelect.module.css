@@ -3,6 +3,7 @@
   display: block;
   height: 100%;
   background: #6c37612b;
+  overflow-x: hidden;
   overflow-y: scroll;
   transition: 0.3s;
 }

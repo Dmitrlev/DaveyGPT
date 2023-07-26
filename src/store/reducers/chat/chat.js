@@ -1,9 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {getTime} from "../../../parsing/getTime";
-import {Audio} from "expo-av";
-import soundFile from "../../../assets/sounds/telegram-soundin.mp3";
-import soundFile2 from "../../../assets/sounds/Sound_17216.mp3";
-import * as uuid from "react-native-uuid/src/v4";
+import * as uuid from "uuid";
 
 const initialState = {
   data: [],
@@ -68,8 +65,6 @@ const Chat = createSlice({
       const { chatId, messageContent, messageSender, messageError } = action.payload;
       const chatIndex = state.data.findIndex(chat => chat.chatId === chatId);
       if (chatIndex !== -1) {
-        if (messageSender === "CLIENT") soundNotificationActivate(soundFile).then(() =>  null);
-        if (messageSender === "DAVID") soundNotificationActivate(soundFile2).then(() =>  null);
         const newMessage = {
           messageId: uuid.v4(),
           messageContent: messageContent.trim(),
@@ -132,11 +127,17 @@ export const {
 
 export default Chat.reducer;
 
-const soundNotificationActivate = async (mp3) => {
-  const { sound } = await Audio.Sound.createAsync(mp3);
-  await sound.playAsync();
-  return sound
-};
+
+// if (messageSender === "CLIENT") soundNotificationActivate(soundFile).then(() =>  null);
+// if (messageSender === "DAVID") soundNotificationActivate(soundFile2).then(() =>  null);
+// import {Audio} from "expo-av";
+// import soundFile from "../../../assets/sounds/telegram-soundin.mp3";
+// import soundFile2 from "../../../assets/sounds/Sound_17216.mp3";
+// const soundNotificationActivate = async (mp3) => {
+//   const { sound } = await Audio.Sound.createAsync(mp3);
+//   await sound.playAsync();
+//   return sound
+// };
 
 
 
