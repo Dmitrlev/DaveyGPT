@@ -13,10 +13,16 @@ export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
 
   return (
     <div className={styles.container}>
-      <button
-        className={styles['button-close-menu-left']}
-        onClick={() => setShowMenuLeft(!showMenuLeft)}
-      ><BiFoodMenu color={'white'} size={18}/></button>
+      <div className={styles['button-close-menu-left']}>
+        <button
+          className={styles['button-close-menu-left-item']}
+          onClick={() => setShowMenuLeft(!showMenuLeft)}
+        ><BiFoodMenu color={'white'} size={18}/></button>
+        <button
+          className={styles['button-close-menu-left-item']}
+          onClick={() => setShowMenuLeft(!showMenuLeft)}
+        ><BiFoodMenu color={'white'} size={18}/></button>
+      </div>
       <MessagesBlock dataThisChat={dataThisChat}/>
       <ChatInput />
     </div>
