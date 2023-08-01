@@ -4,6 +4,7 @@ import {MessagesBlock} from "./MessagesBlock/MessagesBlock";
 import {BiFoodMenu} from "react-icons/bi";
 import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
+import {FiSettings} from "react-icons/fi";
 
 export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
 
@@ -21,7 +22,7 @@ export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
         <button
           className={styles['button-close-menu-left-item']}
           onClick={() => setShowMenuLeft(!showMenuLeft)}
-        ><BiFoodMenu color={'white'} size={18}/></button>
+        ><FiSettings color={'white'} size={18}/></button>
       </div>
       <MessagesBlock dataThisChat={dataThisChat}/>
       <ChatInput />

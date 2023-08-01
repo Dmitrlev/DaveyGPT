@@ -5,7 +5,6 @@ import {ButtonSubmitForm} from "./ButtonSubmitForm/ButtonSubmitForm";
 
 export const ChatInput = () => {
 
-  const [cache, setCache] = useState(null);
   const [value, setValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
@@ -43,9 +42,9 @@ export const ChatInput = () => {
             value={value}
             onChange={(e) => {
               setValue(e.target.value)
-              textareaResize(e, cache, setCache, 150)
+              textareaResize(e, 200)
             }}
-            onKeyDown={(e) => textareaResize(e, cache, setCache, 150)}
+            // onKeyDown={(e) => textareaResize(e, cache, setCache, 150)}
             className={styles.textarea}
           />
           <ButtonSubmitForm show={isBlock}/>

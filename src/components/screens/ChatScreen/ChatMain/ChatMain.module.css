@@ -11,13 +11,13 @@
   left: 10px;
   top: 10px;
   display: flex;
+  flex-direction: column;
   grid-gap: 10px;
-  justify-content: center;
-  align-items: center;
   z-index: 10;
 }
 .button-close-menu-left-item {
   background: #ffffff2b;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 35px;
