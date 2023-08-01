@@ -6,6 +6,8 @@
   z-index: 100;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  transition: 0.3s;
 }
 .fon {
   position: absolute;
@@ -24,13 +26,13 @@
   position: relative;
   width: 50%;
   height: 70%;
-  background: #ffffff8a;
+  background: #ffffff;
   border-radius: 0.75rem;
-  transition: 0.3s;
+  transition: 0.3s, transform 0.3s;
+  transform: translateY(0%);
 }
 .blockNone {
-  visibility: hidden;
-  opacity: 0;
+  transform: translateY(300%);
 }
 .button-close-block {
   padding: 0;

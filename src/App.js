@@ -5,8 +5,6 @@ import {SettingsScreen} from "./components/screens/SettingsScreen/SettingsScreen
 
 function App() {
 
-  console.log('Привет мы запускаемся)')
-
   return (
     <>
       <div className={styles.container}>
