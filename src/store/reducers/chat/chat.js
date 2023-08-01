@@ -1,9 +1,75 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {getTime} from "../../../parsing/getTime";
 import * as uuid from "uuid";
+import styles from "../../../components/screens/ChatScreen/ChatMain/MessagesBlock/MessagesBlock.module.css";
 
 const initialState = {
-  data: [],
+  data: [
+    {
+      chatName: 'test1chat',
+      chatId: 1,
+      chatValue: '',
+      chatMessages: [
+        {
+          messageId: uuid.v4(),
+          messageContent: 'sagesBlock = ({dataThisChat}) => {\n' +
+            '\n' +
+            '  return (\n' +
+            '    <div className={styles.container}>\n' +
+            '      <div className={styles.wrapper}>\n' +
+            '        {dataThisChat?.chatMessages?.map(message => {\n' +
+            '          console.log(message.messageSender)\n' +
+            '          return (\n' +
+            '            <div\n' +
+            '              className={\n' +
+            '              `${styles[\'wrapper-message\']} ` +\n' +
+            '              `${message.messageSender === "DAVID" ? \n' +
+            '                styles[\'wrapper-message-DAVID\'] \n' +
+            '                : \n' +
+            '                styles[\'wrapper-message-CLIENT\']}`\n' +
+            '              }\n' +
+            '            >\n' +
+            '              {\n' +
+            '                message.messageSender === "DAVID" ?\n' +
+            '                  <RenderDavidMessage',
+          messageSender: 'DAVID',
+          messageError: false,
+          messageTime: String(getTime()),
+          messageRead: false,
+        },
+        {
+          messageId: uuid.v4(),
+          messageContent: 'sagesBlock = ({dataThisChat}) => {\n' +
+            '\n' +
+            '  return (\n' +
+            '    <div className={styles.container}>\n' +
+            '      <div className={styles.wrapper}>\n' +
+            '        {dataThisChat?.chatMessages?.map(message => {\n' +
+            '          console.log(message.messageSender)\n' +
+            '          return (\n' +
+            '            <div\n' +
+            '              className={\n' +
+            '              `${styles[\'wrapper-message\']} ` +\n' +
+            '              `${message.messageSender === "DAVID" ? \n' +
+            '                styles[\'wrapper-message-DAVID\'] \n' +
+            '                : \n' +
+            '                styles[\'wrapper-message-CLIENT\']}`\n' +
+            '              }\n' +
+            '            >\n' +
+            '              {\n' +
+            '                message.messageSender === "DAVID" ?\n' +
+            '                  <RenderDavidMessage',
+          messageSender: 'CLIENT',
+          messageError: false,
+          messageTime: String(getTime()),
+          messageRead: false,
+        }
+      ],
+      chatLoader: false,
+      chatFixed: false,
+      chatPrint: false,
+    }
+  ],
 };
 
 const Chat = createSlice({

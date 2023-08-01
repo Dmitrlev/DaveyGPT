@@ -1,16 +1,63 @@
-import {CodeBlock} from "../CodeBlock/CodeBlock";
 import styles from './MessagesBlock.module.css';
+import {RenderDavidMessage} from "./RenderDavidMessage/RenderDavidMessage";
+import {RenderClientMessage} from "./RenderClientMessage/RenderClientMessage";
 
-export const MessagesBlock = () => {
+export const MessagesBlock = ({dataThisChat}) => {
+
   return (
     <div className={styles.container}>
-      <CodeBlock
-        content={codeString}
-        language="javascript"
-      />
+      <div className={styles.wrapper}>
+        {dataThisChat?.chatMessages?.map(message => {
+          console.log(message.messageSender)
+          return (
+            <div
+              className={
+              `${styles['wrapper-message']} ` +
+              `${message.messageSender === "DAVID" ? 
+                styles['wrapper-message-DAVID'] 
+                : 
+                styles['wrapper-message-CLIENT']}`
+              }
+            >
+              {
+                message.messageSender === "DAVID" ?
+                  <RenderDavidMessage
+                    key={message.messageId}
+                    state={message}
+                  />
+                  :
+                  <RenderClientMessage
+                    key={message.messageId}
+                    state={message}
+                  />
+              }
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
-}
+};
+
+
+
+
+// <CodeBlock
+//   content={codeString}
+//   language="javascript"
+// />
+
+
+
+
+
+
+
+
+
+
+
+
 
 const codeString = '// customTheme.js\n' +
   'import { androidstudio } from \'react-syntax-highlighter/dist/esm/styles/hljs\';\n' +

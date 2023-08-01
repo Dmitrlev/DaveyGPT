@@ -7,8 +7,9 @@
   transition: 0.3s;
 }
 .button-close-menu-left {
-  margin-left: 10px;
-  margin-top: 10px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
   display: flex;
   background: #ffffff2b;
   justify-content: center;
@@ -16,4 +17,5 @@
   width: 35px;
   height: 35px;
   border-radius: 0.75rem;
+  z-index: 10;
 }
