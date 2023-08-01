@@ -2,24 +2,27 @@ import {useEffect, useState} from "react";
 import {textareaResize} from "../../../../../parsing/textareaResize";
 import styles from './ChatInput.module.css';
 import {ButtonSubmitForm} from "./ButtonSubmitForm/ButtonSubmitForm";
+import {setChatValue} from "../../../../../store/reducers/chat/chat";
+import {useDispatch} from "react-redux";
 
-export const ChatInput = () => {
+export const ChatInput = ({value, chatId}) => {
 
-  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
   const [isFocused, setIsFocused] = useState(false);
-
   const [isBlock, setIsBlock] = useState(false);
 
   useEffect(() => {
-    setIsBlock(value !== '')
-  }, [value])
+    setIsBlock(value !== '');
+  }, [value]);
 
-  const onCountPlaceholderPosition = () => {
-    return value === ''
-  };
+  useEffect(() => {
+    console.log(value)
+  }, [chatId])
 
-  const handleFocus = () => setIsFocused(true)
-  const handleBlur = () => setIsFocused(false)
+  const onCountPlaceholderPosition = () => value === '';
+
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setIsFocused(false);
 
   return (
     <div className={`${styles.container} ${isFocused ? styles['container-focus'] : ''}`}>
@@ -27,13 +30,9 @@ export const ChatInput = () => {
         className={styles.form}
       >
         <div className={styles.label}>
-          <p
-            className={
-            `${styles.textareaName}` +
-            ' ' +
-            `${onCountPlaceholderPosition() ? styles.textareaNameRelative : styles.textareaNameAbsolute}`
-          }
-          >Send a messages</p>
+          <p className={`${styles.textareaName} ${onCountPlaceholderPosition() ? styles.textareaNameRelative : styles.textareaNameAbsolute}`}>
+            Send a messages
+          </p>
           <textarea
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -41,10 +40,9 @@ export const ChatInput = () => {
             rows={1}
             value={value}
             onChange={(e) => {
-              setValue(e.target.value)
-              textareaResize(e, 200)
+              dispatch(setChatValue({chatValue: e.target.value, chatId}));
+              textareaResize(e, 150);
             }}
-            // onKeyDown={(e) => textareaResize(e, cache, setCache, 150)}
             className={styles.textarea}
           />
           <ButtonSubmitForm show={isBlock}/>

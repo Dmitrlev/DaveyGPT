@@ -5,11 +5,13 @@ import {useState} from "react";
 
 export const ChatScreen = () => {
 
-  const [showMenuLeft, setShowMenuLeft] = useState(false);
+  const [showMenuLeft, setShowMenuLeft] = useState(true);
 
   return (
     <div className={styles.container}>
-      <ChatSelect showMenuLeft={showMenuLeft}/>
+      <ChatSelect
+        showMenuLeft={showMenuLeft}
+      />
       <ChatMain
         showMenuLeft={showMenuLeft}
         setShowMenuLeft={setShowMenuLeft}

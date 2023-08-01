@@ -6,38 +6,10 @@ import styles from "../../../components/screens/ChatScreen/ChatMain/MessagesBloc
 const initialState = {
   data: [
     {
-      chatName: 'test1chat',
-      chatId: 1,
+      chatName: 'Новый чат который я сегодня создал!',
+      chatId: 0,
       chatValue: '',
-      chatMessages: [
-        {
-          messageId: uuid.v4(),
-          messageContent: 'sagesBlock = ({dataThisChat}) => {\n' +
-            '\n' +
-            '  return (\n' +
-            '    <div className={styles.container}>\n' +
-            '      <div className={styles.wrapper}>\n' +
-            '        {dataThisChat?.chatMessages?.map(message => {\n' +
-            '          console.log(message.messageSender)\n' +
-            '          return (\n' +
-            '            <div\n' +
-            '              className={\n' +
-            '              `${styles[\'wrapper-message\']} ` +\n' +
-            '              `${message.messageSender === "DAVID" ? \n' +
-            '                styles[\'wrapper-message-DAVID\'] \n' +
-            '                : \n' +
-            '                styles[\'wrapper-message-CLIENT\']}`\n' +
-            '              }\n' +
-            '            >\n' +
-            '              {\n' +
-            '                message.messageSender === "DAVID" ?\n' +
-            '                  <RenderDavidMessage',
-          messageSender: 'DAVID',
-          messageError: false,
-          messageTime: String(getTime()),
-          messageRead: false,
-        },
-      ],
+      chatMessages: [],
       chatLoader: false,
       chatFixed: false,
       chatPrint: false,

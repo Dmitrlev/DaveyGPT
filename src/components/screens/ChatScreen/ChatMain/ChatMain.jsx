@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {FiSettings} from "react-icons/fi";
 import {setIsActive} from "../../../../store/reducers/setting/setting";
+import {PiChatsDuotone} from "react-icons/pi";
 
 export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
 
@@ -20,14 +21,19 @@ export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
         <button
           className={styles['button-close-menu-left-item']}
           onClick={() => setShowMenuLeft(!showMenuLeft)}
-        ><BiFoodMenu color={'white'} size={18}/></button>
+        ><PiChatsDuotone color={'white'} size={18}/></button>
         <button
           className={styles['button-close-menu-left-item']}
           onClick={() => dispatch(setIsActive({isActive: true}))}
         ><FiSettings color={'white'} size={18}/></button>
       </div>
-      <MessagesBlock dataThisChat={dataThisChat}/>
-      <ChatInput />
+      <MessagesBlock
+        dataThisChat={dataThisChat}
+      />
+      <ChatInput
+        value={dataThisChat?.chatValue}
+        chatId={dataThisChat?.chatId}
+      />
     </div>
   )
 };
