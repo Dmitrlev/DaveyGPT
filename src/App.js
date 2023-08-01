@@ -12,8 +12,8 @@ function App() {
       <div className={styles.container}>
         <Routes>
           <Route path='/:id?' element={<ChatScreen />} />
-          <Route path='/settings' element={<SettingsScreen />} />
         </Routes>
+        <SettingsScreen />
       </div>
       <p className={styles.errorContainer}>Иди купи себе компьютер!</p>
     </>

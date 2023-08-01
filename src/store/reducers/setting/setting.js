@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
+  isActive: false,
   settings: {
     quantityPreviousMessagesAll: true,
     quantityPreviousMessages: 0, //количество предыдущих сообщений в запросе, number || 'all'
@@ -17,6 +18,10 @@ const Setting = createSlice({
   name: 'setting',
   initialState,
   reducers: {
+    setIsActive (state, action) {
+      const { isActive } = action.payload;
+      state.isActive = isActive;
+    },
     setStoreSetting (state, action) {
       state.settings = action.payload;
     },
@@ -43,6 +48,7 @@ const Setting = createSlice({
 });
 
 export const {
+  setIsActive,
   setKey,
   setQuantityPreviousMessages,
   setChatOutline,

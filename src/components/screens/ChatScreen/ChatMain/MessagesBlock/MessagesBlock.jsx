@@ -8,29 +8,22 @@ export const MessagesBlock = ({dataThisChat}) => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         {dataThisChat?.chatMessages?.map(message => {
-          console.log(message.messageSender)
           return (
-            <div
-              className={
-              `${styles['wrapper-message']} ` +
-              `${message.messageSender === "DAVID" ? 
-                styles['wrapper-message-DAVID'] 
-                : 
-                styles['wrapper-message-CLIENT']}`
-              }
-            >
-              {
-                message.messageSender === "DAVID" ?
-                  <RenderDavidMessage
-                    key={message.messageId}
-                    state={message}
-                  />
-                  :
-                  <RenderClientMessage
-                    key={message.messageId}
-                    state={message}
-                  />
-              }
+            <div className={`${styles['wrapper-message']} ${message.messageSender === "DAVID" ? styles['wrapper-message-DAVID'] : styles['wrapper-message-CLIENT']}`}>
+              <div className={styles['block-message']}>
+                {
+                  message.messageSender === "DAVID" ?
+                    <RenderDavidMessage
+                      key={message.messageId}
+                      state={message}
+                    />
+                    :
+                    <RenderClientMessage
+                      key={message.messageId}
+                      state={message}
+                    />
+                }
+              </div>
             </div>
           )
         })}
