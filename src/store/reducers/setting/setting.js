@@ -10,7 +10,7 @@ const initialState = {
     primaryColor: '#d611f3',
     fontSize: 15,
     time: false, //показ времени
-    key: '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',
+    key: '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',
   }
 };
 

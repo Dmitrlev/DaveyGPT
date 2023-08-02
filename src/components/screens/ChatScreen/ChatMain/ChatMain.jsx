@@ -1,16 +1,17 @@
 import {ChatInput} from "./ChatInput/ChatInput";
 import styles from './ChatMain.module.css';
 import {MessagesBlock} from "./MessagesBlock/MessagesBlock";
-import {BiFoodMenu} from "react-icons/bi";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {FiSettings} from "react-icons/fi";
 import {setIsActive} from "../../../../store/reducers/setting/setting";
 import {PiChatsDuotone} from "react-icons/pi";
+import {useGptMessage} from "../../../../hooks/api/useGptMessage";
 
 export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
 
   const dispatch = useDispatch();
+  const { sendMessage, cancelRequest } = useGptMessage();
 
   const idThisChat = Number(useParams().id);
   const dataThisChat = useSelector(state => state.chat.data.find((item) => item.chatId === idThisChat));
@@ -31,6 +32,7 @@ export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
         dataThisChat={dataThisChat}
       />
       <ChatInput
+        sendMessage={sendMessage}
         value={dataThisChat?.chatValue}
         chatId={dataThisChat?.chatId}
       />

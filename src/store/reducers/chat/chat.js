@@ -66,7 +66,6 @@ const Chat = createSlice({
     },
     setChatPrint (state, action) {
       const { chatPrint, chatId } = action.payload;
-      console.log(chatPrint)
       const chatIndex = state.data.findIndex(chat => chat.chatId === chatId);
       if(chatIndex !== -1) {
         state.data[chatIndex].chatPrint = chatPrint;

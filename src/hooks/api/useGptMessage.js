@@ -14,6 +14,7 @@ export const useGptMessage = () => {
   const cancelTokenSourceRef = useRef();
 
   const sendMessage = (value, chatId) => {
+    debugger
     // Если cancelTokenSource уже существует, отменяем предыдущий запрос
     if (cancelTokenSourceRef.current) {
       cancelTokenSourceRef.current.cancel('Request canceled by user');
