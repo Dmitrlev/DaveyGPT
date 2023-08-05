@@ -1,8 +1,7 @@
 .container {
-  margin: 100px;
   height: max-content;
   width: max-content;
-  max-width: 70%;
+  max-width: 90%;
 }
 .wrapper {
   background: #282b2e;

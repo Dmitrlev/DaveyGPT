@@ -41,7 +41,7 @@ export const CodeBlock = ({content, language}) => {
         <div className={styles.codeBlock}>
           <SyntaxHighlighter
             lineNumberStyle={{}}
-            language={language}
+            language={language === 'jsx' ? 'javascript' : language}
             style={customTheme(language)}
             showLineNumbers={false}
             showInlineLineNumbers={false}

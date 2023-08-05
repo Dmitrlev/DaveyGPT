@@ -24,3 +24,26 @@
   height: 35px;
   border-radius: 0.75rem;
 }
+.slider-block {
+  position: relative;
+  height: max-content;
+  display: flex;
+  margin-top: 10px;
+}
+.slider-block p {
+  writing-mode: vertical-rl; /* Это свойство задает вертикальное направление текста */
+  text-orientation: upright;
+  font-size: 50%;
+  color: white;
+  font-weight: 900;
+}
+.slider-block span {
+  font-size: 80%;
+  color: white;
+}
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 5px;
+}

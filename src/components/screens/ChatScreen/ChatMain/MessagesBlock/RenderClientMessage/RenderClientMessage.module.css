@@ -1,0 +1,7 @@
+.container {}
+.content {
+  font-size: 100%;
+  white-space: pre-line;
+  font-family: Montserrat, sans-serif;
+  color: rgba(255, 255, 255, 0.73);
+}

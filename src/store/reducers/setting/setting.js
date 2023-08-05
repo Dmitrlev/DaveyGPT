@@ -3,6 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
   isActive: false,
   settings: {
+    temperature: 0.7,
     quantityPreviousMessagesAll: true,
     quantityPreviousMessages: 0, //количество предыдущих сообщений в запросе, number || 'all'
     theme: false, //цветовая расцветка
@@ -10,7 +11,7 @@ const initialState = {
     primaryColor: '#d611f3',
     fontSize: 15,
     time: false, //показ времени
-    key: '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',
+    key: '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',
   }
 };
 
@@ -18,6 +19,10 @@ const Setting = createSlice({
   name: 'setting',
   initialState,
   reducers: {
+    setTemperature (state, action) {
+      const { temperature } = action.payload;
+      state.settings.temperature = temperature;
+    },
     setIsActive (state, action) {
       const { isActive } = action.payload;
       state.isActive = isActive;
@@ -48,6 +53,7 @@ const Setting = createSlice({
 });
 
 export const {
+  setTemperature,
   setIsActive,
   setKey,
   setQuantityPreviousMessages,

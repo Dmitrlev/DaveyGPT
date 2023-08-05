@@ -1,0 +1,20 @@
+/* Стилизация ползунка */
+.rc-slider {
+  height: 100px;
+  margin-right: 5px;
+  margin-left: 3px;
+  /*background: red;*/
+}
+
+.rc-slider-handle {
+  /*background: green;*/
+}
+
+.rc-slider-track {
+  /*background: rebeccapurple;*/
+  width: 100px;
+}
+
+.rc-slider-rail {
+  /*background: yellow;*/
+}

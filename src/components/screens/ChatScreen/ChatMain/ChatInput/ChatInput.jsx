@@ -21,14 +21,15 @@ export const ChatInput = ({sendMessage, value, chatId}) => {
   };
 
   const onCountPlaceholderPosition = () => value === '';
-
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
 
   return (
     <div className={`${styles.container} ${isFocused ? styles['container-focus'] : ''}`}>
       <form
-        onSubmit={e => e.preventDefault()}
+        onSubmit={e => {
+          e.preventDefault();
+        }}
         className={styles.form}
       >
         <div className={styles.label}>

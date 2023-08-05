@@ -1,8 +1,34 @@
+import {CodeBlock} from "../../CodeBlock/CodeBlock";
+import styles from './RenderDavidMessage.module.css';
+import {renderMessages} from "./renderMessages";
+
 export const RenderDavidMessage = ({state}) => {
 
   const {messageContent} = state;
 
   return (
-    <div>{messageContent}</div>
+    <div className={styles.container}>
+      {renderMessages(messageContent).map((item, index) => {
+        if(item.type === 'text') {
+          return (
+            <div>
+              {item?.content?.map((item, index) => {
+                if (item.type === 'text') {
+                  return item?.content;
+                } else if(item.type === 'allotted') {
+                  return <span className={styles['allottedStyle']}>{item?.content}</span>
+                }
+              })}
+            </div>
+          )
+        } else if(item.type === 'code') {
+          const wordsIndex = item.content.indexOf('\n');
+          const firstWord = item.content.substring(0, wordsIndex);
+          const remainingWords = item.content.substring(wordsIndex + 1);
+          return <CodeBlock content={remainingWords} language={firstWord}/>
+        }
+      })}
+    </div>
   )
 }
+

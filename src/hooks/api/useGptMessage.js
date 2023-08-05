@@ -7,14 +7,18 @@ import { useRef } from "react";
 
 export const useGptMessage = () => {
   const dispatch = useDispatch();
-  const { quantityPreviousMessages, quantityPreviousMessagesAll, key } = useSelector((state) => state.setting.settings);
+  const {
+    quantityPreviousMessages,
+    quantityPreviousMessagesAll,
+    key,
+    temperature,
+  } = useSelector((state) => state.setting.settings);
   const chats = useSelector((state) => state.chat.data);
 
   // Используем useRef для сохранения ссылки на cancelTokenSource между вызовами
   const cancelTokenSourceRef = useRef();
 
   const sendMessage = (value, chatId) => {
-    debugger
     // Если cancelTokenSource уже существует, отменяем предыдущий запрос
     if (cancelTokenSourceRef.current) {
       cancelTokenSourceRef.current.cancel('Request canceled by user');
@@ -44,7 +48,7 @@ export const useGptMessage = () => {
     const requestBody = {
       model: "gpt-3.5-turbo",
       messages,
-      temperature: 0.7,
+      temperature,
     };
 
     dispatch(setChatPrint({ chatPrint: true, chatId }));
