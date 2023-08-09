@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/DaveyGPT/static/css/main.9f35bacd.css",
-    "main.js": "/DaveyGPT/static/js/main.bf403158.js",
+    "main.js": "/DaveyGPT/static/js/main.60197300.js",
     "index.html": "/DaveyGPT/index.html",
     "main.9f35bacd.css.map": "/DaveyGPT/static/css/main.9f35bacd.css.map",
-    "main.bf403158.js.map": "/DaveyGPT/static/js/main.bf403158.js.map"
+    "main.60197300.js.map": "/DaveyGPT/static/js/main.60197300.js.map"
   },
   "entrypoints": [
     "static/css/main.9f35bacd.css",
-    "static/js/main.bf403158.js"
+    "static/js/main.60197300.js"
   ]
 }
