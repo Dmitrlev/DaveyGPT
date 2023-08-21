@@ -25,3 +25,85 @@
 .button-submit-form-icon {
   z-index: 100;
 }
+
+/* Spinner.module.css */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinnerContainer {
+  align-self: end;
+  height: 39.5px;
+  width: 39.5px;
+}
+.spinner {
+  width: 39.5px;
+  height: 39.5px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.spinner >  div {
+  width: 30px;
+  height: 30px;
+  transform: translateX(-42%) translateY(-42%) scale(0.5);
+}
+
+.spinner > div > div {
+  transform-origin: 50px 50px;
+  animation: spin 1.9231s linear infinite;
+  opacity: 1;
+}
+
+.spinner > div > div > div {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 26px;
+  height: 26px;
+  border-radius: 26px 0 0 0;
+  transform-origin: 50px 50px;
+}
+
+.spinner > div > div:nth-child(1) {
+  animation-duration: 0.4808s;
+}
+
+.spinner > div > div:nth-child(1) > div {
+  background: #292664;
+  transform: rotate(0deg);
+}
+
+.spinner > div > div:nth-child(2) {
+  animation-duration: 0.6410s;
+}
+
+.spinner > div > div:nth-child(2) > div {
+  background: #667395;
+  transform: rotate(0deg);
+}
+
+.spinner > div > div:nth-child(3) {
+  animation-duration: 0.9615s;
+}
+
+.spinner > div > div:nth-child(3) > div {
+  background: #94a9ce;
+  transform: rotate(0deg);
+}
+
+.spinner > div > div:nth-child(4) {
+  animation-duration: 1.9231s;
+}
+
+.spinner > div > div:nth-child(4) > div {
+  background: #b5ccf1;
+  transform: rotate(0deg);
+}
+
+

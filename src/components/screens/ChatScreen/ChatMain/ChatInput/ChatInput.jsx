@@ -5,7 +5,7 @@ import { setChatValue } from "../../../../../store/reducers/chat/chat";
 import { useDispatch } from "react-redux";
 import {textareaResize} from "../../../../../parsing/textareaResize";
 
-export const ChatInput = ({ sendMessage, value, chatId }) => {
+export const ChatInput = ({ sendMessage, value, chatId, chatLoader }) => {
 
   const dispatch = useDispatch();
   const [isFocused, setIsFocused] = useState(false);
@@ -19,11 +19,14 @@ export const ChatInput = ({ sendMessage, value, chatId }) => {
   const onCountPlaceholderPosition = () => value === '';
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
-  const handleSubmit = () => !onCountPlaceholderPosition() && sendMessage(value, chatId);
+  const handleSubmit = (event) => {
+    !onCountPlaceholderPosition() && !chatLoader && sendMessage(value, chatId);
+    event.preventDefault();
+  };
   const handleTextareaKeyDown = event => {
-    if (event.key === "Enter" && !event.shiftKey) {
+    if (event.key === "Enter" && !event.shiftKey && !chatLoader) {
       event.preventDefault();
-      handleSubmit(); // Вызывает вашу функцию отправки сообщения
+      handleSubmit(event); // Вызывает вашу функцию отправки сообщения
     }
   };
 
@@ -48,10 +51,16 @@ export const ChatInput = ({ sendMessage, value, chatId }) => {
               dispatch(setChatValue({chatValue: e.target.value, chatId}));
               textareaResize(e, 150);
             }}
-            onKeyDown={handleTextareaKeyDown}
+            onKeyDown={(e) => {
+              handleTextareaKeyDown(e);
+              textareaResize(e, 150);
+            }}
             className={styles.textarea}
           />
-          <ButtonSubmitForm show={isBlock}/>
+          <ButtonSubmitForm
+            show={isBlock}
+            chatLoader={chatLoader}
+          />
         </div>
       </form>
     </div>

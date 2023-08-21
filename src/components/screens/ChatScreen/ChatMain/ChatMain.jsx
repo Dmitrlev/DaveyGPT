@@ -55,6 +55,7 @@ export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
             sendMessage={sendMessage}
             value={dataThisChat?.chatValue}
             chatId={dataThisChat?.chatId}
+            chatLoader={dataThisChat?.chatLoader}
           />
         </>
       )}
