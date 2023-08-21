@@ -16,7 +16,7 @@ export const RenderDavidMessage = ({state}) => {
                 if (item.type === 'text') {
                   return item?.content;
                 } else if(item.type === 'allotted') {
-                  return <span className={styles['allottedStyle']}>{item?.content}</span>
+                  return <span className={styles['allotted-style']}>'{item?.content}'</span>
                 }
               })}
             </div>

@@ -1,10 +1,10 @@
 import styles from "./ButtonSubmitForm.module.css";
 import {IoSend} from "react-icons/io5";
 
-export const ButtonSubmitForm = ({show, callback}) => {
+export const ButtonSubmitForm = ({show}) => {
   return (
     <button
-      onClick={() => callback()}
+      type="submit"
       className={styles['button-submit-form']}
     >
       <div className={`${styles['button-submit-form-fon']} ${show && styles['button-submit-form-fon-active']}`}></div>

@@ -8,11 +8,14 @@
 }
 .allotted-style {
   display: inline-block;
-  color: yellow;
-  background: grey;
-  padding: 5px;
+  color: #9e65f0;
+  /*background: grey;*/
+  margin-left: 5px;
+  margin-right: 5px;
   width: max-content;
   height: max-content;
   border-radius: 5px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 110%;
+  font-family: Roboto, sans-serif;
 }
