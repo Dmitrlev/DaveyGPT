@@ -2,7 +2,9 @@ import styles from './ChatSelect.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {ChatItem} from "./ChatItem/ChatItem";
 import {AiOutlinePlus} from "react-icons/ai";
-import {addNewChat} from "../../../../store/reducers/chat/chat";
+import {addAllChat, addNewChat} from "../../../../store/reducers/chat/chat";
+import {useEffect, useLayoutEffect} from "react";
+import {LocalStorage} from "../../../../services/LocalStorage/LocalStorage.service";
 
 export const ChatSelect = ({showMenuLeft}) => {
 
@@ -18,6 +20,17 @@ export const ChatSelect = ({showMenuLeft}) => {
   };
 
   const dataThisChat = useSelector(state => state.chat.data);
+
+  useEffect(() => {
+    const storedChat = LocalStorage.get('chat');
+    if (storedChat) {
+      dispatch(addAllChat(storedChat));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    setTimeout(() =>  LocalStorage.set('chat', dataThisChat), 0)
+  }, [dataThisChat]);
 
   return (
     <div
@@ -44,4 +57,4 @@ export const ChatSelect = ({showMenuLeft}) => {
       </div>
     </div>
   )
-}
+};

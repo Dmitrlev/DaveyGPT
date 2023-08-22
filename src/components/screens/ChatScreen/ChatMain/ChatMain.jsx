@@ -4,12 +4,14 @@ import {MessagesBlock} from "./MessagesBlock/MessagesBlock";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {FiSettings} from "react-icons/fi";
-import {setIsActive, setTemperature} from "../../../../store/reducers/setting/setting";
+import {setIsActive, setQuantityPreviousMessages, setTemperature} from "../../../../store/reducers/setting/setting";
 import {PiChatsDuotone} from "react-icons/pi";
 import {useGptMessage} from "../../../../hooks/api/useGptMessage";
 import Slider from "rc-slider";
 import 'rc-slider/assets/index.css';
 import './slider-styles.css';
+import {LocalStorage} from "../../../../services/LocalStorage/LocalStorage.service";
+import {useEffect} from "react";
 
 export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
 
@@ -18,7 +20,19 @@ export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
 
   const idThisChat = Number(useParams().id);
   const dataThisChat = useSelector(state => state.chat.data.find((item) => item.chatId === idThisChat));
-  const {temperature} = useSelector(state => state.setting.settings);
+  const {
+    temperature,
+    quantityPreviousMessages,
+    quantityPreviousMessagesAll,
+  } = useSelector(state => state.setting.settings);
+
+  useEffect(() => {
+    dispatch(setTemperature({temperature: LocalStorage.get('temperature')}));
+    dispatch(setQuantityPreviousMessages({
+      quantityPreviousMessages: LocalStorage.get('quantityPreviousMessages'),
+      quantityPreviousMessagesAll: false
+    }))
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -38,12 +52,35 @@ export const ChatMain = ({showMenuLeft, setShowMenuLeft}) => {
               max={2}
               step={0.1} // Шаг в десятых долях
               value={temperature}
-              onChange={(temperature) => dispatch(setTemperature({temperature}))}
+              onChange={(temperature) => {
+                dispatch(setTemperature({temperature}));
+                LocalStorage.set('temperature', temperature);
+              }}
               vertical={true}
             />
             <span>{temperature}</span>
           </div>
           <p>Температура</p>
+        </div>
+        <div className={styles['slider-block']}  title={titleTem}>
+          <div className={styles['slider-wrapper']}>
+            <Slider
+              min={0}
+              max={100}
+              step={1} // Шаг в десятых долях
+              value={quantityPreviousMessages}
+              onChange={(num) => {
+                dispatch(setQuantityPreviousMessages({
+                  quantityPreviousMessages: num,
+                  quantityPreviousMessagesAll: false
+                }))
+                LocalStorage.set('quantityPreviousMessages', num);
+              }}
+              vertical={true}
+            />
+            <span>{quantityPreviousMessages}</span>
+          </div>
+          <p>сообщения</p>
         </div>
       </div>
       {dataThisChat === undefined ? <FoundRouterUndefined /> : (

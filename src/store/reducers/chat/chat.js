@@ -21,6 +21,9 @@ const Chat = createSlice({
   name: 'chat',
   initialState,
   reducers: {
+    addAllChat (state, action) {
+      state.data = action.payload;
+    },
     setChat (state, action) {
       state.data = action.payload;
     },
@@ -122,6 +125,7 @@ const Chat = createSlice({
 });
 
 export const {
+  addAllChat,
   setChat,
   addNewChat,
   deleteChat,

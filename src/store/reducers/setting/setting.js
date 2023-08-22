@@ -11,7 +11,7 @@ const initialState = {
     primaryColor: '#d611f3',
     fontSize: 15,
     time: false, //показ времени
-    key: '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',
+    key: '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',
   }
 };
 
